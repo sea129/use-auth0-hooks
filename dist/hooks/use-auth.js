@@ -23,7 +23,8 @@ function useAuth(accessTokenRequest) {
             isAuthenticated,
             isLoading,
             login,
-            logout
+            logout,
+            client
         };
     }
     // The following will holde the additional state for this hook.
@@ -71,7 +72,8 @@ function useAuth(accessTokenRequest) {
         isLoading: isLoading || state.isLoading,
         accessToken: state.accessToken,
         login,
-        logout
+        logout,
+        client
     };
 }
 exports.default = useAuth;

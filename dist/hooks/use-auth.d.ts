@@ -28,5 +28,6 @@ export interface UseAuthResult {
      * Sign out.
      */
     logout: (options: LogoutOptions) => void;
+    client?: any;
 }
 export default function useAuth(accessTokenRequest?: AccessTokenRequestOptions): UseAuthResult;
