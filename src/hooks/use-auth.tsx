@@ -40,6 +40,8 @@ export interface UseAuthResult {
    * Sign out.
    */
   logout: (options: LogoutOptions) => void;
+
+  kurt: boolean;
 }
 
 function initialState(): IAccessTokenContext {
@@ -72,7 +74,8 @@ export default function useAuth(accessTokenRequest?: AccessTokenRequestOptions):
       isAuthenticated,
       isLoading,
       login,
-      logout
+      logout,
+      kurt: true
     };
   }
 
@@ -143,6 +146,7 @@ export default function useAuth(accessTokenRequest?: AccessTokenRequestOptions):
     isLoading: isLoading || state.isLoading,
     accessToken: state.accessToken,
     login,
-    logout
+    logout,
+    kurt: true
   };
 }
