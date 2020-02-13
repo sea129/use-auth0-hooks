@@ -33,8 +33,8 @@ function useAuth(accessTokenRequest) {
     react_1.useEffect(() => {
         // We are not ready to fetch an access_token yet.
         if (!client || isLoading || !isAuthenticated) {
-            if (!isAuthenticated && !isLoading && (user === undefined)) {
-                setState(Object.assign(Object.assign({}, initialState()), { isLoading: false }));
+            if (!isAuthenticated && !isLoading && user === undefined) {
+                setState(Object.assign({}, initialState()));
             }
             return;
         }
