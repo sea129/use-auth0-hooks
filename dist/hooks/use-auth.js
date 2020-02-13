@@ -29,7 +29,7 @@ function useAuth(accessTokenRequest) {
     }
     // The following will holde the additional state for this hook.
     // We'll try to fetch the access token from the cache first if available.
-    const [state, setState] = react_1.useState(() => (Object.assign(Object.assign({}, initialState()), { accessToken: client && auth0_1.getAccessTokenFromCache(client, accessTokenRequest.audience, accessTokenRequest.scope), isLoading: !!accessTokenRequest })));
+    const [state, setState] = react_1.useState(() => (Object.assign(Object.assign({}, initialState()), { accessToken: client && auth0_1.getAccessTokenFromCache(client, accessTokenRequest.audience, accessTokenRequest.scope), isLoading: !!accessTokenRequest && isAuthenticated && isLoading })));
     react_1.useEffect(() => {
         // We are not ready to fetch an access_token yet.
         if (!client || isLoading || !isAuthenticated) {
