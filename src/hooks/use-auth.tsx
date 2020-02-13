@@ -84,7 +84,7 @@ export default function useAuth(accessTokenRequest?: AccessTokenRequestOptions):
   const [state, setState] = useState<IAccessTokenContext>((): IAccessTokenContext => ({
     ...initialState(),
     accessToken: client && getAccessTokenFromCache(client, accessTokenRequest.audience, accessTokenRequest.scope),
-    isLoading: !!accessTokenRequest
+    isLoading: !!accessTokenRequest && isAuthenticated
   }));
 
   useEffect(() => {
