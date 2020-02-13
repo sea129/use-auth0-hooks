@@ -92,10 +92,10 @@ export default function useAuth(accessTokenRequest?: AccessTokenRequestOptions):
   useEffect(() => {
     // We are not ready to fetch an access_token yet.
     if (!client || isLoading || !isAuthenticated) {
-      if (!isAuthenticated && !isLoading && user === undefined) {
+      if (!isAuthenticated && !isLoading && (user === undefined)) {
         setState({
           ...initialState(),
-          isLoading: true
+          isLoading: false
         })
       }
       return;
