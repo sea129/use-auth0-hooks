@@ -42,6 +42,8 @@ export interface UseAuthResult {
   logout: (options: LogoutOptions) => void;
 
   client?: any
+
+  isAuthLoading?: boolean
 }
 
 function initialState(): IAccessTokenContext {
@@ -143,10 +145,11 @@ export default function useAuth(accessTokenRequest?: AccessTokenRequestOptions):
     user,
     error: error || state.error,
     isAuthenticated,
-    isLoading: isLoading || state.isLoading,
+    isLoading: state.isLoading,
     accessToken: state.accessToken,
     login,
     logout,
-    client
+    client,
+    isAuthLoading: isLoading
   };
 }
