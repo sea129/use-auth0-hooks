@@ -40,6 +40,7 @@ function useAuth(accessTokenRequest) {
         }
         // Access token is already available in this instance, no need to re-fetch it.
         if (state.accessToken) {
+            setState(Object.assign({}, initialState()));
             return;
         }
         // Try to fetch the access token from the cache in a synchronous way.
