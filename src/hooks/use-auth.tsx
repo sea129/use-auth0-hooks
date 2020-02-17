@@ -102,6 +102,9 @@ export default function useAuth(accessTokenRequest?: AccessTokenRequestOptions):
 
     // Access token is already available in this instance, no need to re-fetch it.
     if (state.accessToken) {
+      setState({
+        ...initialState()
+      })
       return;
     }
 
