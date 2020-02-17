@@ -33,6 +33,9 @@ function useAuth(accessTokenRequest) {
     react_1.useEffect(() => {
         // We are not ready to fetch an access_token yet.
         if (!client || isLoading || !isAuthenticated) {
+            if (!isAuthenticated && !isLoading && user === undefined) {
+                setState(Object.assign({}, initialState()));
+            }
             return;
         }
         // Access token is already available in this instance, no need to re-fetch it.
@@ -69,11 +72,12 @@ function useAuth(accessTokenRequest) {
         user,
         error: error || state.error,
         isAuthenticated,
-        isLoading: isLoading || state.isLoading,
+        isLoading: state.isLoading,
         accessToken: state.accessToken,
         login,
         logout,
-        client
+        client,
+        isAuthLoading: isLoading
     };
 }
 exports.default = useAuth;
